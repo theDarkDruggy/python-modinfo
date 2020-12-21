@@ -2,7 +2,7 @@ import sys
 sys.path.append("../../funcs")
 import funcs
 import fileinput
-
+print('CcC selamun aleyküm CcC')
 modules = []
 ##### GETTING CLASSES #####
 classes = funcs.getClasses(fileinput,"fileinput")
