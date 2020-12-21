@@ -1,33 +1,34 @@
 import inspect
 import colorama
+import stat
 
-def getModules(module):
+def getModules(module,modulestr):
     modules = []
     for i in inspect.getmembers(module,inspect.ismodule):
-        x = str(module)+"."+str(i[0])
+        x = modulestr+"."+str(i[0])
         modules.append(x)
     return modules
 
-def getClasses(module):
+def getClasses(module,modulestr):
     classes = []
-    for i in inspect.getmembers(module,inspect.ismodule):
-        x = str(module)+"."+str(i[0])
+    for i in inspect.getmembers(module,inspect.isclass):
+        x = modulestr+"."+str(i[0])
         classes.append(x)
     return classes
 
-def getFuncsInmod(module):
+def getFuncsInmod(module,modulestr):
     funcs = []
     for i in inspect.getmembers(module):
         if "function" in str(i[1]):
-            x = str(module)+"."+str(i[0])
+            x = modulestr+"."+str(i[0])
             funcs.append(x)
         else:
             pass
     return funcs
 
-def getFuncsInclass(class):
+def getFuncsInclass(clas):
     funcs = []
-    for i inspect.getmembers(class):
+    for i in inspect.getmembers(clas):
         if "function" in str(i[1]):
             x = str(clas)+"."+str(i[0])
             funcs.append(x)
@@ -37,7 +38,7 @@ def getFuncsInclass(class):
 
 def printInfo(info):
     print(colorama.Fore.WHITE,colorama.Style.BRIGHT,info)
-    print(colorama.Style.Normal)
+    print(colorama.Style.NORMAL)
 
 def printFuncs(funcs):
     print(colorama.Fore.GREEN)
@@ -66,8 +67,8 @@ def getChoose(modules,classes,FuncsInmod,FuncsInclass):
     elif int(x) == 2:
         printClasses(classes)
     elif int(x) == 3:
-        printfuncs(FuncsInmod)
+        printFuncs(FuncsInmod)
     elif int(x) == 4:
-        printfuncs(FuncsInclass)
+        printFuncs(FuncsInclass)
     else:
         print("there is no {} option".format(x))
