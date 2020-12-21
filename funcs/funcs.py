@@ -26,11 +26,11 @@ def getFuncsInmod(module,modulestr):
             pass
     return funcs
 
-def getFuncsInclass(clas):
+def getFuncsInclass(clas,classtr):
     funcs = []
     for i in inspect.getmembers(clas):
         if "function" in str(i[1]):
-            x = str(clas)+"."+str(i[0])
+            x = classtr+"."+str(i[0])
             funcs.append(x)
         else:
             pass

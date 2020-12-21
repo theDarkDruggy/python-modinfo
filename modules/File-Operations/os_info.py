@@ -10,17 +10,14 @@ modules = ["os.path","os.st"]
 classes = func.getClasses(os,"os")
 #####=====#####
 ##### GETTING FUNCTIONS #####
-FuncsInmod = []
-fnc1 = func.getFuncsInmod(os,"os")
-fnc2 = func.getFuncsInmod(os.path,"os.path")
-fnc3 = func.getFuncsInmod(os.st,"os.st")
-FuncsInmod = fnc1 + fnc2 + fnc3
+FuncsInmod = func.getFuncsInmod(os,"os") + func.getFuncsInmod(os.path,"os.path") + func.getFuncsInmod(os.st,"os.st")
+
 FuncsInclass = []
 
-fnc2 = func.getFuncsInmod(os.MutableMapping,"os.MutableMapping")
-fnc3 = func.getFuncsInmod(os.PathLike,"os.PathLike")
-fnc4 = func.getFuncsInmod(os._Environ,"os._Environ")
-fnc5 = func.getFuncsInmod(os._wrap_close,"os._wrap_close")
+fnc2 = func.getFuncsInclass(os.MutableMapping,"os.MutableMapping")
+fnc3 = func.getFuncsInclass(os.PathLike,"os.PathLike")
+fnc4 = func.getFuncsInclass(os._Environ,"os._Environ")
+fnc5 = func.getFuncsInclass(os._wrap_close,"os._wrap_close")
 FuncsInclass = fnc2 + fnc3 + fnc4 + fnc5
 ##### CHOOSING #####
 info = """
